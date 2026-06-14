@@ -16,13 +16,13 @@
 
 ## 🎬 使用方法
 
-| 操作 | 快捷键 (Windows) |
-|------|------------------|
-| 开始录音 | `Win+Shift+Z` |
-| 停止录音 & 识别 | `Win+Shift+X` |
+| 操作 | Windows/Linux | macOS |
+|------|---------------|-------|
+| 开始录音 | `Ctrl+Alt+Z` | `Cmd+Option+Z` |
+| 停止录音 & 识别 | `Ctrl+Alt+X` | `Cmd+Option+X` |
 
-1. 按 `Win+Shift+Z` → 听到「嘀」一声 → 开始说话
-2. 说完按 `Win+Shift+X` → 「嘀嘀」两声 → 自动识别
+1. 按 `Ctrl+Alt+Z` (Mac: `Cmd+Option+Z`) → 「嘀」一声 → 开始说话
+2. 说完按 `Ctrl+Alt+X` (Mac: `Cmd+Option+X`) → 「嘀嘀」两声 → 自动识别
 3. 文字自动粘贴到光标位置
 
 > 点击系统托盘图标可打开设置窗口，右键可退出。
@@ -147,11 +147,11 @@ voice2text/
 ```rust
 // 开始录音
 app.global_shortcut()
-    .on_shortcut("Super+Shift+Z", move |...| { ... });
+    .on_shortcut("Ctrl+Alt+Z", move |...| { ... });
 
 // 停止录音
 app.global_shortcut()
-    .on_shortcut("Super+Shift+X", move |...| { ... });
+    .on_shortcut("Ctrl+Alt+X", move |...| { ... });
 ```
 
 支持的修饰键：`Super` (Win), `Ctrl`, `Alt`, `Shift`

@@ -63,7 +63,7 @@ pub fn run() {
                 .build()?;
 
             let _tray = TrayIconBuilder::new()
-                .tooltip("Voice2Text — Super+Shift+Z 开始 | Super+Shift+X 停止")
+                .tooltip("Voice2Text — Ctrl+Alt+Z 开始 | Ctrl+Alt+X 停止")
                 .menu(&menu)
                 .on_tray_icon_event(|tray_handle, event| {
                     if let TrayIconEvent::Click {
@@ -102,9 +102,9 @@ pub fn run() {
             // ========================================
             {
 
-                // 开始录音快捷键: Super+Shift+Z
+                // 开始录音快捷键: Ctrl+Alt+Z
                 app.global_shortcut()
-                    .on_shortcut("Super+Shift+Z", move |app, _shortcut, event| {
+                    .on_shortcut("Ctrl+Alt+Z", move |app, _shortcut, event| {
                         if event.state() != ShortcutState::Pressed {
                             return;
                         }
@@ -118,7 +118,7 @@ pub fn run() {
                             Ok(()) => {
                                 *is_rec = true;
                                 if let Some(tray) = app.tray_by_id("main") {
-                                    let _ = tray.set_tooltip(Some("🔴 录音中… Super+Shift+X 停止"));
+                                    let _ = tray.set_tooltip(Some("🔴 录音中… Ctrl+Alt+X 停止"));
                                 }
                                 beep(880, 150);
                                 if let Some(w) = app.get_webview_window("main") {
@@ -130,9 +130,9 @@ pub fn run() {
                     })
                     .expect("注册开始快捷键失败");
 
-                // 停止录音快捷键: Super+Shift+X
+                // 停止录音快捷键: Ctrl+Alt+X
                 app.global_shortcut()
-                    .on_shortcut("Super+Shift+X", move |app, _shortcut, event| {
+                    .on_shortcut("Ctrl+Alt+X", move |app, _shortcut, event| {
                         if event.state() != ShortcutState::Pressed {
                             return;
                         }
@@ -144,7 +144,7 @@ pub fn run() {
                         println!("[热键] ■ 停止录音");
                         *is_rec = false;
                         if let Some(tray) = app.tray_by_id("main") {
-                            let _ = tray.set_tooltip(Some("Voice2Text — Super+Shift+Z 开始"));
+                            let _ = tray.set_tooltip(Some("Voice2Text — Ctrl+Alt+Z 开始"));
                         }
                         beep(660, 100);
                         std::thread::sleep(std::time::Duration::from_millis(80));
@@ -208,7 +208,7 @@ pub fn run() {
                     })
                     .expect("注册停止快捷键失败");
 
-                println!("[Voice2Text] 快捷键 Super+Shift+Z 开始 / Super+Shift+X 停止 已注册");
+                println!("[Voice2Text] 快捷键 Ctrl+Alt+Z 开始 / Ctrl+Alt+X 停止 已注册");
             }
 
             // 启动时隐藏主窗口（后台运行）
