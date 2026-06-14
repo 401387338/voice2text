@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice2Text</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>🎙️ Voice2Text</h1>
+      <p class="subtitle">后台运行中 · Ctrl+Shift+F9 开始 / Ctrl+Shift+F10 停止 开始/停止录音</p>
+    </header>
+
+    <!-- 状态区 -->
+    <section class="status-section">
+      <div id="status-badge" class="status-badge idle">
+        <span class="status-icon">⏸️</span>
+        <span id="status-label">等待快捷键</span>
+      </div>
+      <div id="timer" class="timer-display">00:00</div>
+    </section>
+
+    <!-- 最近识别结果 -->
+    <section class="history-section">
+      <div class="section-header">
+        <h2>最近识别</h2>
+        <button id="btn-clear-history" class="btn-sm">清空</button>
+      </div>
+      <div id="history-list" class="history-list">
+        <span class="placeholder-text">按 Ctrl+Shift+F9 开始 / Ctrl+Shift+F10 停止 开始录音<br>识别结果将自动粘贴到光标位置</span>
+      </div>
+    </section>
+
+    <!-- 设置 -->
+    <section class="settings-area">
+      <details>
+        <summary>⚙️ 设置</summary>
+        <div class="settings-content">
+          <div class="setting-item">
+            <span>快捷键</span>
+            <kbd>Ctrl+Shift+F9 开始 / Ctrl+Shift+F10 停止</kbd>
+          </div>
+          <div class="setting-item">
+            <span>引擎</span>
+            <span class="hint">whisper.cpp（本地离线）</span>
+          </div>
+          <div class="setting-item">
+            <span>粘贴方式</span>
+            <span class="hint">自动 Ctrl+V</span>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <footer class="app-footer">
+      <span>关闭窗口即最小化到托盘</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicepage/nicepage/refs/heads/main/tauri.conf.json",
+  "productName": "Voice2Text",
+  "version": "0.1.0",
+  "identifier": "com.voice2text.app",
+  "build": {
+    "frontendDist": "../src",
+    "beforeBuildCommand": "",
+    "beforeDevCommand": ""
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Voice2Text - 语音转文字",
+        "width": 900,
+        "height": 650,
+        "resizable": true,
+        "center": true,
+        "minWidth": 500,
+        "minHeight": 400
+      }
+    ],
+    "withGlobalTauri": true,
+    "security": {
+      "csp": null
+    }
+  },
+  "plugins": {}
+}

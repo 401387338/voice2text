@@ -1,0 +1,46 @@
+# Rust
+src-tauri/target/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Build artifacts
+whisper.cpp/build/
+
+# Debug files
+debug_*.wav
+test_audio.wav
+test_out.txt
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude / AI assistant settings (personal)
+.claude/
+
+# Screenshots
+screenshot.png
+
+# whisper.cpp source (not needed, use faster-whisper Python package)
+whisper.cpp/
+
+# Model files (large binaries)
+src-tauri/models/*.bin
+
+# Temp
+/tmp/
+
+# Batch launcher (contains local paths)
+启动Voice2Text.bat

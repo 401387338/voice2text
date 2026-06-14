@@ -1,0 +1,29 @@
+[package]
+name = "voice2text"
+version = "0.1.0"
+edition = "2021"
+description = "跨平台语音转文字工具 — 快捷键触发，自动粘贴"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+cpal = "0.15"
+hound = "3.5"
+arboard = "3"
+anyhow = "1"
+log = "0.4"
+env_logger = "0.11"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
