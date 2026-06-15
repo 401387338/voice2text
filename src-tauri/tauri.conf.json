@@ -33,7 +33,11 @@
       "icons/128x128.png",
       "icons/icon.ico"
     ],
-    "resources": {},
+    "resources": {
+      "whisper_server.py": "./",
+      "whisper_transcribe.py": "./",
+      "python": "./"
+    },
     "windows": {
       "webviewInstallMode": {
         "type": "embedBootstrapper"

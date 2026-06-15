@@ -52,3 +52,4 @@ release/*.zip
 
 # Batch launcher (contains local paths)
 启动Voice2Text.bat
+src-tauri/python/
