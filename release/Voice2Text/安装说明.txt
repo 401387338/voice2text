@@ -1,39 +1,32 @@
 Voice2Text v0.1.0 — 安装说明
 ================================
 
-📋 环境要求
+📦 三步安装
 -----------
-1. Python 3.10+ (https://python.org)
-2. 麦克风设备
-3. (可选) NVIDIA GPU + CUDA 12 用于 GPU 加速
-
-🔧 安装步骤
------------
-1. 安装 Python 依赖：
-   pip install -r requirements.txt
-
-   # GPU 加速 (NVIDIA 显卡，可选):
-   pip install nvidia-cublas-cu12
-
-2. 双击运行 voice2text.exe
-
-3. 首次启动会自动下载 whisper 模型 (~1.5GB)，需要网络
+1. 解压 Voice2Text 文件夹到任意位置（如 D:\Voice2Text）
+2. 运行上一级目录的 setup.bat
+3. setup.bat 会自动安装 Python 依赖、创建桌面快捷方式
 
 🎤 使用方法
 -----------
 开始录音: Ctrl+Alt+Z
 停止识别: Ctrl+Alt+X (Mac: Cmd+Option+X)
+文字自动粘贴到当前光标位置
 
-说完后文字自动粘贴到当前光标位置。
-
-🖥️ 开机自启
+⚠ 首次使用
 -----------
-将 voice2text.exe 的快捷方式放入：
-  Win+R → shell:startup → 粘贴快捷方式
+首次录音时会自动下载语音模型（约1.5GB），需要几分钟。
+之后缓存到本地，不再需要网络。
 
-📁 文件说明
+🔧 手动安装（如果 setup.bat 失败）
 -----------
-voice2text.exe         - 主程序
-whisper_server.py      - 语音识别服务 (GPU 优先)
-whisper_transcribe.py  - 备用单次识别脚本
+1. 安装 Python 3.10+ https://python.org
+2. pip install faster-whisper ctranslate2 numpy
+3. (可选) GPU 加速: pip install nvidia-cublas-cu12
+4. 双击 voice2text.exe
+
+📂 文件说明
+-----------
+voice2text.exe         - 主程序（系统托盘运行）
+whisper_server.py      - 语音识别服务
 requirements.txt       - Python 依赖列表

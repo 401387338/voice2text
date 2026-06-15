@@ -146,7 +146,16 @@ impl WhisperEngine {
 }
 
 fn find_script(name: &str) -> String {
-    for p in &[name.to_string(), format!("src-tauri/{}", name)] {
+    for p in &[
+        name.to_string(),
+        format!("src-tauri/{}", name),
+        // Release 模式下脚本在 exe 同目录
+        std::env::current_exe()
+            .ok()
+            .and_then(|exe| exe.parent().map(|d| d.join(name)))
+            .and_then(|p| p.to_str().map(|s| s.to_string()))
+            .unwrap_or_default(),
+    ] {
         if Path::new(&p).exists() {
             return p.to_string();
         }

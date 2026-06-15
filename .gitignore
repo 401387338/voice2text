@@ -39,6 +39,14 @@ whisper.cpp/
 # Model files (large binaries)
 src-tauri/models/*.bin
 
+# PyInstaller / build artifacts
+src-tauri/build/
+src-tauri/*.spec
+release/whisper/
+
+# GitHub Release archives
+release/*.zip
+
 # Temp
 /tmp/
 
