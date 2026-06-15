@@ -16,8 +16,10 @@ impl WhisperEngine {
         let script = find_script("whisper_server.py");
         println!("[Whisper] 启动持久服务: {}", script);
 
-        // 启动 Python 进程
-        let mut child = Command::new("python")
+        // 启动嵌入式 Python 进程
+        let python_exe = find_python();
+        println!("[Whisper] Python: {}", python_exe);
+        let mut child = Command::new(&python_exe)
             .env("PYTHONUTF8", "1")
             .env("PYTHONIOENCODING", "utf-8")
             .env("HF_ENDPOINT", "https://hf-mirror.com")
@@ -143,6 +145,18 @@ impl WhisperEngine {
 
         Ok(clean_output(&raw_text))
     }
+}
+
+fn find_python() -> String {
+    if let Ok(exe) = std::env::current_exe() {
+        if let Some(dir) = exe.parent() {
+            let bundled = dir.join("python/python.exe");
+            if bundled.exists() {
+                return bundled.to_string_lossy().to_string();
+            }
+        }
+    }
+    "python".to_string()
 }
 
 fn find_script(name: &str) -> String {
