@@ -201,7 +201,7 @@ fn clean_output(text: &str) -> String {
         .map(|l| l.trim())
         .filter(|l| !l.is_empty())
         .collect::<Vec<_>>()
-        .join("")
+        .join("\n")
 }
 
 fn resample_i16(samples: &[i16], from_rate: u32, to_rate: u32) -> Vec<i16> {

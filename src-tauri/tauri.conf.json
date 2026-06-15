@@ -11,7 +11,7 @@
   "app": {
     "windows": [
       {
-        "title": "Voice2Text - 语音转文字",
+        "title": "Voice2Text - Voice to Text",
         "width": 900,
         "height": 650,
         "resizable": true,
@@ -27,20 +27,21 @@
   },
   "bundle": {
     "active": true,
-    "targets": "all",
+    "targets": "nsis",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
-      "icons/128x128@2x.png",
-      "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "resources": {
-      "whisper_server.py": "./",
-      "whisper_transcribe.py": "./"
-    },
+    "resources": {},
     "windows": {
-      "wix": {}
+      "webviewInstallMode": {
+        "type": "embedBootstrapper"
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["English", "SimpChinese"]
+      }
     }
   },
   "plugins": {}
