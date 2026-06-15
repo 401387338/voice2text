@@ -36,6 +36,7 @@
     "resources": {
       "whisper_server.py": "./",
       "whisper_transcribe.py": "./",
+      "WebView2Loader.dll": "./",
       "python": "./"
     },
     "windows": {
